@@ -45,17 +45,18 @@ def fetch_deepseek_response(app_idea):
     else:
         return None
 
+def generate(app_idea):
+    project_charter_text = fetch_deepseek_response(app_idea)
+    if project_charter_text:
+        with open("project_charter.md", "w", encoding="utf-8") as file:
+            file.write(project_charter_text)
 
-app_idea = input("Please enter your app idea:")
-project_charter_text = fetch_deepseek_response(app_idea)
-if project_charter_text:
-    with open("project_charter.md", "w", encoding="utf-8") as file:
-        file.write(project_charter_text)
-
-    #convert md text to word document.
-    word_file = Markdown2docx('project_charter')
-    word_file.eat_soup()
-    word_file.save()
-    print("Project charter save successfully ! ")
-else:
-    print("An unexpected error occured during project charter generation!")
+        #convert md text to word document.
+        word_file = Markdown2docx('project_charter')
+        word_file.eat_soup()
+        word_file.save()
+        print("Project charter save successfully ! ")
+        return project_charter_text
+    else:
+        print("An unexpected error occured during project charter generation!")
+        return None
