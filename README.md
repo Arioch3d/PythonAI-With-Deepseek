@@ -15,3 +15,11 @@ Set Variable to DeepSeek API and pass the payload variable.
 Step 4: Parse the API response to get answers.
 Check to see if the server is running.
 Generate a response.
+
+Adding Health Data Python file to read from CSV.
+Created csv file with test patient data.
+Changed sensitivity of results returned.
+Changed how the AI would return the results.
+Reused the DeepSeek code to call LM Studio.
+
+Build a ChatBot using DeepSeek API
