@@ -27,7 +27,7 @@ def create_ppt(markdown_table, ppt_file_name):
         slide = presentation.slides.add_slide(slide_layout)
         first_col = headers[0] #Grabs the name of the first column
         slide.placeholders[0].text = row[first_col] #Value of the first column header
-        content_text = "\n".join(f"{key}:{value}" for key,value in row.items()) #joins the column header and value on 1 line.
+        content_text = "\n".join(f"{key.strip('*').strip}:{value}" for key,value in row.items()) #joins the column header and value on 1 line.
         slide.placeholders[1].text = content_text
 
     presentation.save(f"{ppt_file_name}.pptx")
